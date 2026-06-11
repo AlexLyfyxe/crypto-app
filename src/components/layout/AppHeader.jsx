@@ -12,6 +12,7 @@ const headerStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  background: 'radial-gradient(circle at 50% 0%, #1a2a44 0%, #0d1b2a 40%, #050b14 100%) fixed',
 }
 
 export default function AppHeader() {
@@ -41,30 +42,27 @@ export default function AppHeader() {
         <Layout.Header style={headerStyle}>
 
             <Select
-  mode="multiple"
-  style={{
-    width: '250',
-  }}
-//   placeholder="select one country"
-//   defaultValue={['china']}
-  open={select}
-  onSelect={handleSelect}
-  onClick={() => setSelect((prev) => !prev)}
-  value='press / to open'
-//   optionLabelProp="label"
-  options={crypto.map(coin => ({
-    label: coin.name,
-    value: coin.id,
-    icon: coin.icon,
-  }))}
-  optionRender={(option) => (
+              mode="multiple"
+              style={{
+                width: '250',
+              }}
+              open={select}
+              onSelect={handleSelect}
+              onClick={() => setSelect((prev) => !prev)}
+              value='press / to open'
+              options={crypto.map(coin => ({
+                label: coin.name,
+                value: coin.id,
+                icon: coin.icon,
+              }))}
+              optionRender={(option) => (
     <Space>
       <img style={{width: 20}} src={option.data.icon} alt={option.data.label} /> {option.data.label}
     </Space>
   )}
 />
 
-        <Button type="primary" onClick={() => setDrawer(true)}>Add Asset</Button>
+        <Button type="dashed" onClick={() => setDrawer(true)}>Add Asset</Button>
 
 
         <Modal
